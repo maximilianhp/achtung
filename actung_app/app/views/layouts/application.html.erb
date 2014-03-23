@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ActungApp</title>
+  <title>Achtung Kontroller!</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
+
+  <p>
+    <% if controller_name == 'locations' %>
+      <%= link_to "Create new location", new_location_path %>
+    <% else %>
+      <%= link_to "Create new user", new_user_path %>
+    <% end %>
+
+    <%= link_to "Show all locations", locations_path %>
+    <%= link_to "Show all users", users_path %>
+  </p>
 
 </body>
 </html>
