@@ -1,4 +1,10 @@
 ActungApp::Application.routes.draw do
+  resources :users
+
+
+  resources :locations
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
