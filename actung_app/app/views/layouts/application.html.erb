@@ -3,23 +3,29 @@
 <head>
   <title>Achtung Kontroller!</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id='container'>
 
-  <%= yield %>
+    <div id='topbar'>
+      <%= image_tag("logo.svg", :alt => "logo", :id => "logo") %>
+      <span id="achtung">ACHTUNG KONROLLER!</span>  
+    </div>
+    <%= yield %>
 
-  <p>
-    <% if controller_name == 'locations' %>
-      <%= link_to "Create new location", new_location_path %>
-    <% else %>
-      <%= link_to "Create new user", new_user_path %>
-    <% end %>
+    <p>
+      <% if controller_name == 'locations' %>
+        <%= link_to "Create new location", new_location_path %>
+      <% else %>
+        <%= link_to "Create new user", new_user_path %>
+      <% end %>
 
-    <%= link_to "Show all locations", locations_path %>
-    <%= link_to "Show all users", users_path %>
-  </p>
-
+      <%= link_to "Show all locations", locations_path %>
+      <%= link_to "Show all users", users_path %>
+    </p>
+  </div>
 </body>
 </html>
