@@ -10,11 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user_id, 'User' %><br />
-    <%= f.select(:user_id, User.all.map {|x| [x.name, x.id] }) %>
-  </div>
   <div class="field">
     <%= f.label :lat %><br />
     <%= f.text_field :lat %>
