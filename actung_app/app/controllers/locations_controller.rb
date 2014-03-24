@@ -43,9 +43,10 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(params[:location])
-
+    @location.user = current_user
     respond_to do |format|
       if @location.save
+        @locations = current_user.locations
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
         format.json { render json: @location, status: :created, location: @location }
       else

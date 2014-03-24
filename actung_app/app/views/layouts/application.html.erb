@@ -4,6 +4,8 @@
   <title>Achtung Kontroller!</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=API_KEY&sensor=FALSE"></script>
+  <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz-Lee6k1J4b48qiJRX35rjitj9P9WPBY&sensor=false"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -12,14 +14,17 @@
 
       <div id='topbar'>
         <%= image_tag("logo.svg", :alt => "logo", :id => "logo") %>
-        <span id="achtung">ACHTUNG KONROLLER!</span>
         <% if current_user %>
-          <%= "Hello #{current_user.name}" %>
+          <%= "ACHTUNG! #{current_user.name.upcase}!" %>
+        <% else %>
+          <%= "ACHTUNG! KONTROLLER!" %>
         <% end %>
       </div>
 
-      <%= yield %>
-
+      <div id='map'>
+        <%= yield %>
+      </div>
+      
       <div id='bottombar'>
         <% if current_user %>
           <%= link_to "Create new location", new_location_path %>

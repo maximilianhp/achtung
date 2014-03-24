@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function initialise() {
+  var mapOptions = {
+    center: new google.maps.LatLng(51.5, -0.1),
+    zoom: 14,
+    streetViewControl: false,
+    mapTypeControl: false
+  };
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+};
+
+google.maps.event.addDomListener(window, 'load', initialise); 
