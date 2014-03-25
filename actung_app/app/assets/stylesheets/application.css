@@ -33,8 +33,9 @@ body, html {
   width: 100%;
   height: 45px;
   padding: 10px 15px 10px 15px;
-  background-color: #d71920;
-  color: #ece5cd;
+  border-bottom: 3px solid #221f1f; 
+  background-color: #ebe4cd;
+  color: #221f1f;
   vertical-align: text-top;
   position: fixed;
   top: 0;
@@ -44,8 +45,12 @@ body, html {
   font-size: 3em;
 }
 
-#logo {
+#logo, #achtungbutton {
   width: 100px;
+}
+
+#topname {
+  margin-left: 1%;
 }
 
 #topbar > * {
@@ -55,13 +60,13 @@ body, html {
 #bottombar {
   width: 100%;
   padding: 10px 15px 10px 15px;
-  background-color: #d71920;
-  color: #ece5cd;
+  border-top: 3px solid #221f1f;
+  background-color: #ebe4cd;
+  color: #221f1f;
   position: fixed;
   bottom: 0;
   z-index: 1000;
   display: inline;
-  font-weight: 900;
 }
 
 #map_canvas {

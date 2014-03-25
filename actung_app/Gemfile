@@ -8,6 +8,7 @@ gem 'rails', '3.2.17'
 gem 'sqlite3'
 gem 'cancan'
 gem 'devise'
+gem 'high_voltage'
 
 group :development do
   gem 'pry-rails'

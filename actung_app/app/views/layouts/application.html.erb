@@ -14,11 +14,13 @@
 
       <div id='topbar'>
         <%= image_tag("logo.svg", :alt => "logo", :id => "logo") %>
-        <% if current_user %>
-          <%= "ACHTUNG! #{current_user.name.upcase}!" %>
-        <% else %>
-          <%= "ACHTUNG! KONTROLLER!" %>
-        <% end %>
+        <span id='topname'>
+          <% if current_user %>
+            <%= "ACHTUNG! #{current_user.name.upcase}!" %>
+          <% else %>
+            <%= "ACHTUNG! KONTROLLER!" %>
+          <% end %>
+        </span>
       </div>
 
       <div id='map'>
@@ -27,7 +29,7 @@
       
       <div id='bottombar'>
         <% if current_user %>
-          <%= link_to "Create new location", new_location_path %>
+          <%= link_to image_tag("achtung.svg", :alt => "achtung", :id => "achtungbutton"), new_location_path %>
         <% else %>
           <% unless content_for?(:bottombar) %>
             <%= render('devise/sessions/new.html.erb') %>
@@ -37,6 +39,9 @@
         <% if current_user %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to logout?'} %>
         <% end %>
+        <%= link_to 'About', page_path('about') %>
+        <%= link_to 'Legal', page_path('legal') %>
+        <%= link_to 'Contact', page_path('contact') %>
       </div>
       
     </div>
