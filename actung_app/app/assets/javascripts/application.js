@@ -68,3 +68,43 @@
 
 //   }
 //   google.maps.event.addDomListener(window, 'load', getLocation() );
+
+
+// Google Maps Styling
+
+// [
+//   {
+//     "stylers": [
+//       { "color": "#221f1f" },
+//       { "visibility": "simplified" }
+//     ]
+//   },{
+//     "featureType": "administrative",
+//     "elementType": "labels.text.fill",
+//     "stylers": [
+//       { "visibility": "on" },
+//       { "color": "#ede6ce" }
+//     ]
+//   },{
+//     "featureType": "transit.line",
+//     "elementType": "geometry.fill",
+//     "stylers": [
+//       { "visibility": "on" },
+//       { "color": "#777367" }
+//     ]
+//   },{
+//     "featureType": "transit.station",
+//     "elementType": "labels.text.fill",
+//     "stylers": [
+//       { "visibility": "on" },
+//       { "color": "#ede6ce" }
+//     ]
+//   },{
+//     "featureType": "transit.station",
+//     "elementType": "labels.icon",
+//     "stylers": [
+//       { "visibility": "on" }
+//     ]
+//   },{
+//     "elementType": "labels.icon"  }
+// ]
