@@ -10,7 +10,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role
   # validates :email, presence: true, uniquness: true
 
-  has_many :locations
+  has_many :locations do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+
+    def this_week
+      where(:created_at => (Time.now.beginning_of_week..Time.now))
+    end
+  end
 
   def role?(role)
     self.role.to_s == role.to_s
