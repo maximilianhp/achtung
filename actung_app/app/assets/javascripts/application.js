@@ -154,47 +154,17 @@ $(function(){
           icon: 'http://imgh.us/marker_1.svg',
           animation: google.maps.Animation.DROP
         });
-
-      //addMarkerListeners(marker);
       
     }
 
-    // function addLocationToDB(loc) {
-    //   $.ajax({
-    //         url: "/locations",
-    //         type: "POST",
-    //         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    //         data: { lat: loc.lat, lng: loc.lng },
-    //         success: function(data){
-    //           //console.log(data);
-    //           var obj = {
-    //               lat: data.lat,
-    //               lng: data.lng,
-    //           };
-    //           locs.push(obj);
-    //           $('#content_box').addClass("hidden");
-    //           reset_fields();
-    //           setupMap(data.lat, data.lng);
-    //           console.log('addLocationToDB completed');
-    //         }
-    //     });
-    // }
+    function addLocationToDB(cur_loc) {
+      $.ajax({
+            url: "/locations",
+            type: "POST",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            data: { lat: cur_loc.lat, lng: cur_loc.lng },
+            success: function(data){ console.log(data); }
+        });
+    }
 
 });
-
-// function lookup_location() {
-//   geoPosition.getCurrentPosition(show_map, show_map_error);
-// }
-
-// function show_map(loc) {
-//   $("#map-canvas").css({'width':'100%','height':'350px'});
-//   var map = new GMap2(document.getElementById("map-canvas"));
-//   var center = new GLatLng(loc.coords.latitude, loc.coords.longitude);
-//   map.setCenter(center, 14);
-//   map.addControl(new GSmallMapControl());
-//   map.addControl(new GMapTypeControl());
-//   map.addOverlay(new GMarker(center, {draggable: false, title: "You are here (more or less)"}));
-// }
-
-// Google Maps Styling
-

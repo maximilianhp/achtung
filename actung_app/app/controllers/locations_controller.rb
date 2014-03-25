@@ -42,15 +42,29 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(params[:location])
-    @location.user = current_user
+
+    if request.xhr?
+      @location = Location.new
+      @location.lat = params['lat'].to_f
+      @location.lng = params['lng'].to_f
+      @location.user = current_user
+    else
+      @location = Location.new(params[:location])
+      @location.user = current_user
+    end
+    
     respond_to do |format|
       if @location.save
-        @locations = current_user.locations
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render json: @location, status: :created, location: @location }
+        
+        if request.xhr?
+          
+          format.json { render json: @location}
+        else
+          format.html { redirect_to locations_path }
+        end
       else
-        format.html { render action: "new" }
+        flash.now[:alert] = 'You have exceeded your daily quota!'
+        format.html { redirect_to locations_url }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
