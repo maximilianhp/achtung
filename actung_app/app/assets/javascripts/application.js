@@ -123,7 +123,15 @@
 //   },{
 //     "elementType": "labels.text.stroke",
 //     "stylers": [
+//       { "color": "#808080" },
 //       { "visibility": "off" }
+//     ]
+//   },{
+//     "featureType": "water",
+//     "elementType": "geometry.fill",
+//     "stylers": [
+//       { "visibility": "on" },
+//       { "color": "#4e4c4c" }
 //     ]
 //   }
 // ]
