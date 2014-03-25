@@ -16,14 +16,16 @@ body, html {
   margin: 0px;
   padding: 0px;
   font-family: 'Roboto', sans-serif;
+  min-height: 100%;
+  width: 100%;
 }
 
 #container {
   margin: 0px;
   padding: 0px;
   position:relative;
-  min-height:100%;
-  width:100%;
+  min-height: 100%;
+  width: 100%;
   position:relative;
   display:inline-block;
   font-size: 12px;
@@ -45,7 +47,7 @@ body, html {
   font-size: 3em;
 }
 
-#logo, #achtungbutton {
+#logo {
   width: 100px;
 }
 
@@ -53,25 +55,61 @@ body, html {
   margin-left: 1%;
 }
 
+#logout {
+  float: right;
+  margin-right: 5%;
+}
+
 #topbar > * {
     vertical-align: top;
 }
 
 #bottombar {
-  width: 100%;
-  padding: 10px 15px 10px 15px;
-  border-top: 3px solid #221f1f;
-  background-color: #ebe4cd;
-  color: #221f1f;
   position: fixed;
   bottom: 0;
   z-index: 1000;
-  display: inline;
+  width: 100%;
 }
 
-#map {
+#achtungbutton {
+  margin: auto;
+  display: block;
+  width: 100px;
+}
+
+#links {
+  width: 150px;
+  margin: 1% auto;
+  text-align: center;
+}
+
+#status {
+  border: 3px solid #221f1f;
+  width: 30%;
+  background-color: #ebe4cd;
+  color: #221f1f;
+  margin: 15% auto;
+  z-index: 1000;
+  padding: 10px;
+}
+
+#map-canvas {
   width: 100%;
+  min-height: 100%;
   margin-top: 65px;
+}
+
+a {
+  text-decoration: none;
+  color: #221f1f;
+}
+
+a:hover {
+  color: #d71920;
+}
+
+#links a {
+  color: #d71920; 
 }
 
 table {
