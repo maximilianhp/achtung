@@ -1,37 +1,8 @@
-<script>
-$(function(){ 
-  function getUserLocations()
-    {
-      $.ajax({
-            url: "/locations",
-            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-            success: function(data){
-
-              locs = [];
-              for(var i=0; i<data.length; i++)
-              {
-                var obj = {
-                    name: data[i].name,
-                    lat: data[i].lat,
-                    lng: data[i].lng,
-                    pwd: data[i].pwd,
-                    address: data[i].address,
-                    id: data[i].id,
-                };
-                locs.push(obj);
-              }
-          }
-        });
-    }
-});
-</script>
-
 <% if current_user %>
   <h1>Listing locations</h1>
   <div id='map-canvas'>
 
   </div>
-
 <% else %>
   <%= render 'pages/home' %>
 <% end %>

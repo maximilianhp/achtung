@@ -87,15 +87,7 @@ body, html {
   font-size: 2em;
   font-weight: 900;
   float: left;
-}
-
-#sessionsbar input[type="submit"] {
-  background-color: #221f1f;
-  border: none;
-  color: #ebe4cd;
-  font-size: 2em;
-  font-weight: 900;
-  float: left;
+  width: 173px;
 }
 
 .links {

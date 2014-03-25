@@ -33,7 +33,7 @@
       
       <div id='bottombar'>        
         <% if current_user %>
-          <%= link_to image_tag("achtung.svg", :alt => "achtung", :id => "achtungbutton"), new_location_path %>
+          <%= link_to image_tag("achtung.svg", :alt => "achtung", :id => "achtungbutton"), new_location_path, :id => "achtungbuttonlink" %>
         <% else %>
           <div id='sessionsbar'>
             <% unless content_for?(:bottombar) %>

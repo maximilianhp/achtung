@@ -16,15 +16,46 @@
 
 $(function(){
 
+  $('#achtungbuttonlink').click(function(ev){
+    ev.preventDefault();
+    getLocation();
+
+  });
+
+
+  if (navigator.geolocation)
+    {
+        var options = {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+      };
+      navigator.geolocation.getCurrentPosition( 
+        function(position) {
+          cur_loc.lat = position.coords.latitude;
+          cur_loc.lng = position.coords.longitude;
+          setupMap(cur_loc.lat, cur_loc.lng);
+        },
+        function(e) {
+          console.log("error code:" + e.code + 'message: ' + e.message );
+        },
+        options
+      );
+    }
+
+
+
+
+
+
+});
+
+  var locs = [];
+
   var cur_loc = {
     lat: null,
     lng: null
   };
-
-  $('#achtungbutton').click(function(ev){
-    ev.preventDefault();
-    getLocation();
-  });
 
   function getLocation() {
 
@@ -52,8 +83,8 @@ $(function(){
     cur_loc.lat  = position.coords.latitude;
     cur_loc.lng =  position.coords.longitude;
     console.log(cur_loc);
-    setupMap(cur_loc.lat, cur_loc.lng);
     addLocationToDB(cur_loc);
+    window.location.href='/';
   }
 
   function setupMap(lat, lng)
@@ -138,23 +169,40 @@ $(function(){
       
       };
 
-      map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
       geocoder = new google.maps.Geocoder();
 
-      addCurrentLocMarker(map);
+      addAllMarkers(map);
       
     }
 
-    function addCurrentLocMarker(map)
-    {
-      marker = new google.maps.Marker({
-          position: new google.maps.LatLng(cur_loc.lat, cur_loc.lng),
-          map: map,
-          icon: 'http://imgh.us/marker_1.svg',
-          animation: google.maps.Animation.DROP
+
+    function addAllMarkers(map) {
+      $.ajax({
+            url: "/locations",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            success: function(data){
+              console.log(data);
+
+              for(var i=0; i<data.length; i++)
+              {
+                var obj = {
+                    lat: data[i].lat,
+                    lng: data[i].lng,
+                };
+                console.log('adding marker ' + data[i].id);
+                marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(data[i].lat, data[i].lng),
+                  map: map,
+                  icon: 'http://imgh.us/marker_1.svg',
+                  animation: google.maps.Animation.DROP
+                });
+              }
+          }
         });
-      
     }
 
     function addLocationToDB(cur_loc) {
@@ -167,4 +215,3 @@ $(function(){
         });
     }
 
-});
