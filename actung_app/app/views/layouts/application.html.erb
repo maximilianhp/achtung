@@ -4,8 +4,7 @@
   <title><%= (yield(:title).empty? ? "Achtung Kontrolleur!" : yield(:title) ) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
-  <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=API_KEY&sensor=false"></script>
-  <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz-Lee6k1J4b48qiJRX35rjitj9P9WPBY&sensor=false"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb9m-F6MB2kjwyl5GmuTUwsKra3MT2SBI&sensor=false"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -28,29 +27,40 @@
         </span>
       </div>
 
-      <div id='map-canvas'>
-        <% if !current_user %>
-          <div id='status'>
+  
+      <%= yield %>
+
+      
+      <div id='bottombar'>        
+        <% if current_user %>
+          <%= link_to image_tag("achtung.svg", :alt => "achtung", :id => "achtungbutton"), new_location_path %>
+        <% else %>
+          <div id='sessionsbar'>
             <% unless content_for?(:bottombar) %>
-                <%= render('devise/sessions/new.html.erb') %>
+              <%= render('devise/sessions/new.html.erb') %>
             <% end %>
-            <%= yield(:status) %>
+            <%= yield(:bottombar) %>
+          </div>
+        <% end %>
+        <% if current_user %>
+          <div class='links'>
+            <%= link_to 'About', page_path('about') %>
+            &nbsp
+            <%= link_to 'Legal', page_path('legal') %>
+            &nbsp
+            <%= link_to 'Contact', page_path('contact') %>
           </div>
         <% else %>
-          <%= yield %>
+          <div class='links' id='loggedoutlinks'>
+            <%= link_to 'About', page_path('about') %>
+            &nbsp
+            <%= link_to 'Legal', page_path('legal') %>
+            &nbsp
+            <%= link_to 'Contact', page_path('contact') %>
+          </div>
         <% end %>
       </div>
       
-      <div id='bottombar'>
-        <% if current_user %>
-          <%= link_to image_tag("achtung.svg", :alt => "achtung", :id => "achtungbutton"), new_location_path %>
-        <% end %>
-        <p id='links'>
-          <%= link_to 'About', page_path('about') %>
-          <%= link_to 'Legal', page_path('legal') %>
-          <%= link_to 'Contact', page_path('contact') %>
-        </p>
-      </div>
     </div>
   </body>
 </html>

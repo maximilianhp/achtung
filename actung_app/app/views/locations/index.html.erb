@@ -1,29 +1,9 @@
 <% if current_user %>
   <h1>Listing locations</h1>
+  <div id='map-canvas'>
 
-  <table>
-    <tr>
-      <th>User</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Created At</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  </div>
 
-  <% @locations.each do |location| %>
-    <tr>
-      <td><%= location.user.name %></td>
-      <td><%= location.lat %></td>
-      <td><%= location.lng %></td>
-      <td><%= location.created_at %></td>
-      <td><%= link_to 'Show', location %></td>
-      <td><%= link_to 'Edit', edit_location_path(location) %></td>
-      <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
 <% else %>
   <%= render 'pages/home' %>
 <% end %>
