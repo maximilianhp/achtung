@@ -2,15 +2,12 @@
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div><%= f.email_field :email, placeholder: "Email", :autofocus => true %></div>
-
-    <div><%= f.text_field :name, placeholder: "Name" %></div>
-
-    <div><%= f.password_field :password, placeholder: "Password" %></div>
-
-    <div><%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %></div>
-
-    <div><%= f.submit "Sign up" %></div>
+    <div class='sessionstuff'>
+      <%= f.email_field :email, placeholder: "Email", :autofocus => true %>
+      <%= f.text_field :name, placeholder: "Name" %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+      <%= f.submit "Sign up" %></div>
   <% end %>
 
   <%= render "devise/shared/links" %>

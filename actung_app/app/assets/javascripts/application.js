@@ -14,6 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 
+// $(window).resize(function(){
+
+//     $('#homegif').css({
+//         position:'absolute',
+//         left: ($(window).width() - $('#homegif').outerWidth())/2,
+//         top: ($(window).height() - $('#homegif').outerHeight())/2
+//     });
+
+// });
+
+// // To initially run the function:
+// $(window).resize();
+
 $(function(){
 
   $('#achtungbuttonlink').click(function(ev){
