@@ -132,13 +132,43 @@ a:hover {
   color: #d71920;
 }
 
+.adminform {
+  color: #ebe4cd;
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+  font-size: 2em;
+}
+
+.adminform a {
+  color: #ebe4cd;
+}
+
+.adminform a:hover {
+  color: #d71920;
+}
+
+.namecell {
+  width: 500px;
+}
+
 table {
-  border-collapse:collapse;
-  border:1px solid black;
+  display: block;
+  margin: auto;
 }
 
 table td {
-  border:1px solid black;
+  border-collapse:collapse;
+  border-top: 2px solid #d71920;
+}
+/*
+tr {
+  border-top: 2px solid #d71920;
+}*/
+
+th {
+  text-align: left;
 }
 
 .pages {
