@@ -181,10 +181,32 @@ th {
 
 h1 {
   color: #d71920;
+  font-weight: 700;
 }
 
 .pages p {
   text-align: justify;
+  font-size: 1em;
+}
+
+.ak {
+  font-weight: 700;
+}
+
+#legal {
+  font-size: 1.5em;
+}
+
+#two {
+  color: #b2ad9b;
+}
+
+#three {
+  color: #777367;
+}
+
+#four {
+  color: #3b3a34;
 }
 
 #homegif {
@@ -232,6 +254,18 @@ form {
     display: block;
     margin: auto;
     margin-top: 10%;
+    font-size: 1em;
+  }
+
+  .pages {
+    margin: 10% auto;
+    width: 80%;
+    padding: 1% 2%;
+    color: #ebe4cd;
+  }
+
+
+  #legal {
     font-size: 1em;
   }
 }
