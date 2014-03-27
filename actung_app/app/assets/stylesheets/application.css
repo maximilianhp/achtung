@@ -223,8 +223,9 @@ form {
 }
 
 .deviselinks {
-  font-weight: 900;
+  font-weight: 700;
   z-index: 9999;
+  margin-left: 1px;
 }
 
 @media (max-width: 768px) {
@@ -263,7 +264,6 @@ form {
     padding: 1% 2%;
     color: #ebe4cd;
   }
-
 
   #legal {
     font-size: 1em;
