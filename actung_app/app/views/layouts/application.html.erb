@@ -12,7 +12,7 @@
     <div id='container'>
 
       <div id='topbar'>
-        <%= image_tag("logo.svg", :alt => "logo", :id => "logo") %>
+        <%= link_to image_tag("logo.svg", :alt => "logo", :id => "logo"), root_path %>
         <span id='topname'>
           <% if current_user %>
             <%= "ACHTUNG! #{current_user.name.upcase}!" %>
