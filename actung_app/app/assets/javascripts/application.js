@@ -108,7 +108,7 @@ $(function(){
 
       var mapOptions = {
           center: new google.maps.LatLng(myLocation.lat(),myLocation.lng()),
-          zoom: 15,
+          zoom: 13,
           streetViewControl: false,
           mapTypeControl: false,
           scaleControl: false,

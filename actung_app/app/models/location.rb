@@ -10,9 +10,9 @@ class Location < ActiveRecord::Base
   validate :user_quota, :on => :create
 
   def user_quota
-    if user.locations.today.count >= 3
+    if user.locations.today.count >= 10
       errors.add(:base, "Exceeds daily limit")
-    elsif  user.locations.this_week.count >= 15
+    elsif  user.locations.this_week.count >= 30
       errors.add(:base, "Exceeds weekly limit")
     end
   end  
